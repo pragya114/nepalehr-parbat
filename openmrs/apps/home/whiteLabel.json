@@ -1,0 +1,15 @@
+{
+  "homePage": {
+    "header_text": "<b>Welcome to Parbat Hospital Digital Health Profile ",
+    "logo": "/bahmni/images/curative.png",
+    "title_text": " "
+  },
+  "loginPage": {
+    "logo": "/bahmni/images/curative.png",
+    "showHeaderText": true,
+    "showTitleText": false
+  },
+  "helpLink": {
+    "url": "http://www.nepalehr.org"
+  }
+}

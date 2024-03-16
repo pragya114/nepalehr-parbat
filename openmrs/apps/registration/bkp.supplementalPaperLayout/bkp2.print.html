@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="/bahmni_config/openmrs/apps/registration/supplementalPaperLayout/css/print.css"/>
+<div>
+    <style>
+    </style>
+    <div class="row fontForSticker">
+        <div class="left">
+           <div class="row1">
+               Printed Date: &nbsp;<span>{{today | date:'dd/MM/yyyy'}}</span>
+            </div>
+
+            <div class="row">
+                Patient Identifier : &nbsp; <span>{{patient.primaryIdentifier.identifier}}</span>
+            </div>
+	    <div class="row">
+	  	<span><b>NHIS {{patient['NHIS Number']}}</b></span>
+	    </div>	
+            <div class="dept">
+                Patient Name: <span><strong>{{patient.fullNameLocal()}}</strong></span>
+            </div>
+            <div class="row">
+                Address: <span>{{patient.address.cityVillage}}</span>
+                <span>{{patient.address.address1}}</span>
+                <span>{{patient.address.countyDistrict}}</span>
+            </div>
+            <div ng-switch on="patient.gender" class="row">
+                Age/Sex: <span>
+                    {{patient.age.years}}Y/
+                </span>
+                <span ng-switch-when="M">
+                    M
+                </span>
+                <span ng-switch-when="F">
+                    F
+                </span>
+            </div>
+       
+            
+            <div class="row dept">
+                Department: <span><strong>{{obs['Department Sent To'][0].value}}</strong></span>
+            </div>
+            <div class="row1">
+                Charge:&nbsp; <span>{{visitTypePrice}}</span>
+            </div>
+            
+        </div>
+    </div>
+</div>

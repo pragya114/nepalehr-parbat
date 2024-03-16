@@ -1,0 +1,107 @@
+<link rel="stylesheet" href="/bahmni_config/openmrs/apps/registration/supplementalPaperLayout/css/print.css"/>
+<script src="/bahmni_config/openmrs/apps/registration/supplementalPaperLayout/js/qrcode.min.js"></script>
+<script src="/bahmni_config/openmrs/apps/registration/supplementalPaperLayout/js/jquery.js"></script>
+<script src="/bahmni/components/nepali-date-picker/dist/jquery.nepaliDatePicker.min.b4803b8f.js"></script>
+<div>
+    <style>
+        .borderless td, .borderless th {
+            border: none;
+        }
+
+        table.inner {
+            display: flex;
+            height: 100%;
+            justify-content: space-between;
+            flex-direction: column;
+        }
+
+        table.table tr>td:first-child {
+            font-weight: bold;
+        }
+
+        .d-none {
+            display: none;
+        }
+    </style>
+    <div class="row fontForSticker">
+        <span id="uuid" class="d-none">{{patient.primaryIdentifier.identifier}}</span>
+        <table class="table borderless">
+            <tbody>
+                <tr>
+                    <td>
+                        <canvas style="margin-right: 20px;" id="qrcode"></canvas>
+                    </td>
+                    <td>
+                        <table class="table borderless inner">
+                            <tr>
+                                <td>ID</td>
+                                <td>:</td>
+                                <td><b>{{patient.primaryIdentifier.identifier}}</b></td>
+                            </tr>
+                            <tr>
+                                <td>Patient</td>
+                                <td>:</td>
+                                <td ng-switch on="patient.gender" class="row">
+                                    {{patient.fullNameLocal()}}, 
+                                    <span>
+                                        {{patient.age.years}} Y,
+                                    </span>
+                                    <span ng-switch-when="M">
+                                        Male
+                                    </span>
+                                    <span ng-switch-when="F">
+                                        Female
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Date/Time</td>
+                                <td>:</td>
+                                <!--<td>{{today | date:'dd/MM/yyyy hh:mm:ss a'}}</td>-->
+                                <td><span id="todayDate"></td>
+                            </tr>
+                            <tr ng-if="patient['Contact Number']">
+                                <td>Mobile No.</td>
+                                <td>:</td>
+                                <td>{{patient["Contact Number"]}}</td>
+                            </tr>
+                            <tr>
+                                <td>Address</td>
+                                <td>:</td>
+                                <td>
+                                    <span>{{patient.address.cityVillage}}</span> - 
+                                    <span>{{patient.address.address1}}</span>, 
+                                    <span>{{patient.address.countyDistrict}}</span>
+                                </td>
+                            </tr>
+                            <tr ng-if="patient['NHIS Number']">
+                                <td>NHIS ID/CC</td>
+                                <td>:</td>
+                                <td>{{patient['NHIS Number']}} <span ng-if="patient['Claim Code']">[ {{ patient['Claim Code'] }} ]</span></td>
+                            </tr>
+                            <tr>
+                                <td>Visit/User</td>
+                                <td>:</td>
+                                <td>{{ visitTypePrice }} / {{ user }}</td>                            
+                            </tr>
+                            <tr>
+                            <td>Departmnet</td>
+                            <td>:</td>
+                            <td>{{obs['Department Sent To'][0].value}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    var canvas = document.getElementById('qrcode');
+    var uuid = document.getElementById('uuid').innerText;
+
+    QRCode.toCanvas(canvas, uuid, {
+        width: 100
+    });
+</script>
+<script src="/bahmni_config/openmrs/apps/registration/supplementalPaperLayout/js/printwala.js"></script>

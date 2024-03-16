@@ -1,0 +1,348 @@
+{
+    "general": {
+        "title": "General",
+        "displayByDefault": true,
+        "defaultSections": true,
+        "printing": {
+            "title": "Parbat Hospital",
+            "header": "Visit",
+            "logo": "../images/curative.png"       
+         }, 
+	"defaultSections": true,
+        "sections": {
+	      "conditions": {
+                "title": "Conditions",
+                "type": "conditionsList",
+                "displayOrder": 2,
+                "config": { }
+            }
+	}  
+    },
+    "discharge_summary": {
+        "translationKey": "DASHBOARD_TAB_DISCHARGE_SUMMARY_KEY",
+        "printing": {
+            "title": "Parbat Hospital",
+            "header": "Discharge Summary",
+            "logo": "../images/curative.png"
+        },
+        "sections": {
+            "patientinformation": {
+                "type": "patientInformation",
+                "config": {
+                    "title": "PatientInformation",
+                    "patientAttributes": [],
+                    "addressFields": [
+                        "cityVillage",
+                        "countyDistrict"
+                    ]
+                },
+                "displayOrder": 0
+            },
+            "diagnosis": {
+                "type": "diagnosis",
+                "config": {
+                    "title": "Diagnoses",
+                    "showCertainty": true,
+                    "showOrder": true,
+                    "showDetailsButton": true
+                },
+                "displayOrder": 1
+            },
+            "conditions": {
+                "type": "conditionsList",
+                "config": {
+                    "title": "Conditions"
+                },
+                "displayOrder": 7
+            },
+            "discharge_notes": {
+                "type": "Discharge Notes",
+                "config": {
+                    "numberOfVisits": 1,
+                    "showDetailsButton": true,
+                    "conceptNames": [
+                        "Discharge Note, Brief Hospital Course",
+                        "Discharge Note, Medications on Discharged",
+                        "Discharge Note, Followup Instructions"
+                    ],
+                    "title": "Discharge Notes"
+                },
+                "displayOrder": 2
+            },
+            "disposition": {
+                "type": "disposition",
+                "config": {
+                    "title": "Dispositions",
+                    "numberOfVisits": 1,
+	   	    "conceptNames": ["Disposition Notes"],		 
+                    "showDetailsButton": true
+                },
+                "displayOrder": 3
+            },
+            "admissiondetails": {
+                "type": "admissionDetails",
+                "config": {
+                    "showDetailsButton": true,
+                    "translationKey": "DISCHARGE_SUMMARY_ADMISSION_DETAILS_KEY"
+                },
+                "displayOrder": 4
+            },
+            "investigationresult": {
+                "type": "investigationResult",
+                "config": {
+                    "translationKey":"LAB_INVESTIGATION",
+                    "showChart": true,
+                    "showTable": true,
+                    "showNormalLabResults": true,
+                    "showCommentsExpanded": true,
+                    "showAccessionNotes": true,
+                    "numberOfVisits": 10,
+                    "initialAccessionCount": 1,
+                    "latestAccessionCount": 1
+                },
+                "displayOrder": 5
+            },
+            "treatment": {
+                "type": "treatment",
+                "config": {
+                    "translationKey": "VISIT_TITLE_TREATMENTS_KEY",
+                    "showFlowSheet": true,
+                    "showListView": true,
+                    "showOtherActive": false,
+                    "showDetailsButton": true,
+                    "showRoute": true,
+                    "showDrugForm": true,
+                    "showProvider":false
+                },
+                "displayOrder": 6
+            }
+        }
+    },
+    "opdSummary": {
+        "title": "OPD Summary",
+        "printing": {
+            "title": "Parbat Hospital",
+            "header": "OPD Summary",
+            "logo": "../images/curative.png",
+            "showNameAndImage": true
+        },
+        "sections": {
+            "patientinformation": {
+                "type": "patientInformation",
+                "config": {
+                    "title": "PatientInformation",
+                    "patientAttributes": ["NHIS Number", "Claim Code"],
+                    "addressFields": [
+                        "cityVillage",
+                        "countyDistrict"
+                    ]
+                },
+                "displayOrder": 0
+            },
+            "diagnosis": {
+                "type": "diagnosis",
+                "config": {
+                    "translationKey" : "DISCHARGE_SUMMARY_DIAGNOSIS_KEY",
+                    "showCertainty": true,
+                    "showOrder": true,
+                    "showDetailsButton": true
+                },
+                "displayOrder": 1
+            },
+            "observation": {
+                "type": "observation",
+                "title": "Observation",
+                "config": {
+                    "numberOfVisits": 1,
+                    "obsIgnoreList": [
+                        "Patient file",
+                        "Radiology",
+                        "Lab Manager Notes",
+                        "Accession Uuid",
+                        "Impression"
+                    ],
+                    "showDetailsButton": true
+                },
+                "displayOrder": 2
+            },
+            "disposition": {
+                "type": "disposition",
+                "config": {
+                    "title": "Disposition",
+                    "numberOfVisits": 1,
+                    "showDetailsButton": true
+                },
+                "displayOrder": 3
+            },
+            "investigationResult": {
+                "type": "investigationResult",
+                "config": {	
+                    "showChart": true,
+                    "showTable": false,		
+                    "showNormalLabResults": false,
+                    "showCommentsExpanded": false,
+                    "showAccessionNotes": true,
+                    "numberOfVisits": 10
+                },
+                "displayOrder": 4
+            },
+	    "radiologyOrderControl":{
+            "type": "order",
+            "config":{
+                "title": "Radiology Orders",
+                "orderType": "Radiology Order",
+                "numberOfVisits": 1,
+                "showProvider": false
+            },
+                "displayOrder": 5
+        },
+            "otherdiagnosticOrderControl":{
+            "type": "order",
+            "config":{
+                "title" : "Other Diagnostics",
+                "orderType": "USG Order",
+                "numberOfVisits": 1,
+                "showProvider": false
+        },
+                "displayOrder": 6
+        },
+            "treatment": {
+                "type": "treatment",
+                "config": {
+                    "translationKey": "Treatments",
+                    "title": "Treatments",
+                    "showFlowSheet": true,
+                    "showListView": true,
+                    "showOtherActive": false,
+                    "showDetailsButton": true,
+                    "showRoute": true,
+                    "showDrugForm": true
+                },
+                "displayOrder": 7
+            }
+        }
+    },
+    "testSummary": {
+        "title": "OPD One Pager",
+        "printing": {
+            "title": "Parbat Hospital",
+            "header": "OPD One Pager",
+            "logo": "../images/curative.png",
+            "showNameAndImage": true
+        },
+        "sections": {
+            "patientinformation": {
+                "type": "patientInformation",
+                "config": {
+                    "title": "PatientInformation",
+                    "patientAttributes": ["NHIS Number", "Claim Code"],
+                    "addressFields": [
+                        "cityVillage",
+                        "countyDistrict"
+                    ]
+                },
+                "displayOrder": 0
+            },
+            "diagnosis": {
+                "type": "diagnosis",
+                "config": {
+                    "title": "Diagnoses",
+                    "showCertainty": true,
+                    "showOrder": true,
+                    "showDetailsButton": true
+                },
+                "displayOrder": 1
+            },
+            "observation": {
+                "type": "observation",
+                "title": "Observation",
+                "config": {
+                    "numberOfVisits": 2,
+                    "obsIgnoreList": [
+                        "Patient file",
+                        "Radiology",
+                        "Lab Manager Notes",
+                        "Accession Uuid",
+                        "Impression"
+                    ],
+                    "showDetailsButton": true
+                },
+                "displayOrder": 2
+            },
+            "disposition": {
+                "type": "disposition",
+                "config": {
+                    "title": "Disposition",
+                    "numberOfVisits": 1,
+                    "showDetailsButton": true
+                },
+                "displayOrder": 3
+            },
+            "investigationresult": {
+                "type": "investigationResult",
+                "config": {
+                    "showChart": true,
+                    "showTable": false,
+                    "showNormalLabResults": true,
+                    "showCommentsExpanded": true,
+                    "showAccessionNotes": true,
+                    "numberOfVisits": 1
+                },
+                "displayOrder": 4
+            },
+	    "radiologyOrderControl":{
+	    "type": "order",
+	    "config":{
+		"title": "Radiology Orders",
+		"orderType": "Radiology Order",
+		"numberOfVisits": 1,
+		"showProvider": false
+	    },
+		"displayOrder": 5		
+	},	
+	    "otherdiagnosticOrderControl":{
+	    "type": "order",
+	    "config":{
+		"title" : "Other Diagnostics",
+		"orderType": "USG Order",
+		"numberOfVisits": 1,
+		"showProvider": false
+	},
+		"displayOrder": 6	
+	},
+            "treatment": {
+                "type": "treatment",
+                "config": {
+                    "translationKey": "Treatments",
+                    "title": "Treatments",
+                    "showFlowSheet": true,
+                    "showListView": true,
+                    "showOtherActive": false,
+                    "showDetailsButton": true,
+                    "showRoute": true,
+                    "showDrugForm": true
+                },
+                "displayOrder": 7
+            }
+        }
+
+    },
+    "birthCertificate": {
+        "title": "Birth Certificate",
+        "printing": {
+            "title": "",
+            "header": "",
+            "logo": ""
+        },
+        "sections": {
+            "Birth Certificate": {
+                "type": "custom",
+                "displayOrder": 1,
+                "config": {
+                    "title": "Parbat Hospital Birth Certificate",
+                    "template": "<birth-certificates></birth-certificates>"
+                }
+            }
+        }
+    }
+}

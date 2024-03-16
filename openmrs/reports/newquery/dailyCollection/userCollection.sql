@@ -1,0 +1,1 @@
+SELECT  u.username,sum(v.visit_fee) as collection from visit v left join users u on u.user_id = v.creator where DATE(v.date_started) BETWEEN CAST('#startDate#' AS DATE) AND CAST('#endDate#' AS DATE) group by u.username

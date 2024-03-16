@@ -1,0 +1,87 @@
+
+<link rel="stylesheet" href="/bahmni_config/openmrs/apps/registration/supplementalPaperLayout/css/print.css"/>
+<div>
+    <style>
+    </style>
+    <div class="row fontForSticker">
+        <!-- <div class="left"> -->
+
+            <div class="row">
+                <!--div class="left" ><b><span id="identiferID">{{patient.primaryIdentifier.identifier}}</span></b></div-->
+                <div class="left" ><b><span id="awbno">{{patient.primaryIdentifier.identifier}}</span></b></div>
+                <div class="right">Date:&nbsp;<span style="text-align:right;" id="todayDate">{{today | date:'dd/MM/yyyy'}}</span></div>
+                <!-- <span style="text-align:left;"><b>{{patient.primaryIdentifier.identifier}}</b></span>
+		        Date:&nbsp;<span style="text-align:right;" id="todayDate">{{today | date:'dd/MM/yyyy'}}</span> -->
+            </div>	
+            <div class="row">
+                <span id="nhisID"><b>NHIS {{patient['NHIS Number']}}</b></span><br>
+		<span id="claimID"><b>Claim No. {{patient['Claim Code']}}</b></span>
+            </div>	
+          
+      <div class="row">  
+          <div class="col-12"><svg id="barc"  ></svg> </div>
+         
+      </div>   
+        
+            <div class="row">
+                <span><strong>{{patient.fullNameLocal()}}</strong></span>
+            </div>
+            <div ng-switch on="patient.gender" class="row">
+                <span>
+                    ({{patient.age.years}}Y {{patient.age.months}}M {{patient.age.days}}D,
+                </span>
+                
+                <span ng-switch-when="M">
+                    Male)
+                </span>
+                <span ng-switch-when="F">
+                    Female)
+                </span>
+            </div>
+            <div class="row">
+                <div class="left">  <span>{{patient.address.cityVillage}}</span>
+                <span>{{patient.address.address1}}</span>
+                <span>{{patient.address.countyDistrict}}</span> </div>
+                <div class="right">
+                    <strong>R.By:&nbsp;{{currentUser.username}}</strong>
+                	</div>
+            </div>
+            
+            
+                              
+            
+            <div class="row dept">
+                <div class="left">Department:&nbsp; <span style="text-align:left;" id="deptId"><strong>{{obs['Department Sent To'][0].value}}</strong></span></div> 
+                <div class="right">
+                    
+            <!-- <div class="uname"> -->
+                <!-- {{visitTypePrice = 200}} -->
+            <!-- </div> -->
+            <span id="obsdata" style="display: none;">{{obs}}</span>
+                  Charge:&nbsp;<span style="text-align:right;" id="chargeID">{{visitTypePrice}} 
+		    </span>
+		                     
+                </div>
+               <!-- Department:&nbsp; <span style="text-align:left;"><strong>{{obs['Department Sent To'][0].value}}</strong></span>
+		Charge:&nbsp;<span style="text-align:rigt;">{{visitTypePrice}}</span> -->
+            </div>
+        </div>
+    </div>
+     
+<script src="/bahmni_config/openmrs/apps/registration/supplementalPaperLayout/js/jquery.js"></script>
+<script src="/bahmni_config/openmrs/apps/registration/supplementalPaperLayout/js/nepaliDatePicker.min.js"></script>
+<script src="/bahmni_config/openmrs/apps/registration/supplementalPaperLayout/js/barcode.js"></script>
+<script src="/bahmni_config/openmrs/apps/registration/supplementalPaperLayout/js/printwala.js"></script>
+
+
+
+
+
+
+
+
+
+ 
+
+
+
